@@ -6,9 +6,8 @@
 
 ----------
 
-Lab Meeting
 NIH, NIDDK, LBG
-*Travis Hoppe*, Allen Minton, Di Wu
+*[Travis Hoppe](http://thoppe.github.io/)*, Allen Minton, Di Wu
 
 ====
 
