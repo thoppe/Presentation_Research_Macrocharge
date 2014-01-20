@@ -1,4 +1,7 @@
-Source control for the [research talk](http://thoppe.github.io/macrocharge_presentation):
+Research presentation
+## [Virial Coefficients of Charged Protein Solutions](http://thoppe.github.io/macrocharge_presentation):
 
-## VIRIAL COEFFICIENTS OF CHARGED PROTEIN SOLUTIONS
+## Travis Hoppe
+
+
 
