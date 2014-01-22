@@ -59,9 +59,8 @@ From the equation of state you can calculate most thermodynamic properties!
 
 ## Virial Coefficients
 Why work with this expansion?
-
 ====+
-
+<br>
 ## We can measure them!
 usually with light scattering
 
@@ -108,7 +107,7 @@ _(it's easy!)_
 ====
 
 ## Hard spheres
-overlap energy is either $0$ or $\infty$.
+overlap energy is either $0$ or $\infty$
 
 |## $B_2 = -\frac{1}{2} \int_0^\sigma  (e^{-\infty/k_B T} - 1) 4\pi r^2 dr + -\frac{1}{2} \int_\sigma^\infty (e^{0/k_B T} - 1) 4\pi r^2 dr$
 
@@ -125,13 +124,14 @@ _(not so easy)_
 ====
 
 ## Electrostatic field
+
 Coulomb's Law (point charge)
-# $\phi = \frac{1}{4 \pi \epsilon_0}\frac{q}{r}$
+## $\phi = \frac{1}{4 \pi \epsilon_0}\frac{q}{r}$
 
 Correction for dielectrics?
-# $\phi = \frac{1}{4 \pi \epsilon_0 \epsilon_r }\frac{q}{r}$
+## $\phi = \frac{1}{4 \pi \epsilon_0 \epsilon_r }\frac{q}{r}$
 
-What to do with the solvent?
+### What about the solvent?
 ====*
 
 ## Yukawa Potential
@@ -156,7 +156,7 @@ Splits space into regions of discrete $\epsilon_r$.
 ====
 
 # The Process
-!(images/human_serum_albumin_1e7h.png) <<transparent>>
+!(images/human_serum_albumin_1e7h.png)<<transparent>>
 
 Crystallized PDB Structure
 ====*
@@ -190,14 +190,14 @@ Spherical Harmonic decomposition
 # The Process
 
 !(images/HSA_real.png) <<transparent>>
-!(images/HSA_fit.png) <<transparent>>
+!(images/HSA_fit.png)  <<transparent>>
 
 Best fit charges
 ====*
 
 # The Process
-!(images/MC1.png) <<transparent>>
-!(images/MC2.png) <<transparent>>
+!(images/MC1.png)<<transparent>>
+!(images/MC2.png)<<transparent>>
 
 Monte-Carlo Simulation
 
@@ -224,6 +224,7 @@ Excluded volume for modeled as a hard sphere.
 Representation of the protein _electrostatics_ 
 in an ionic solution for a given pH.
 ====+
+<br>
 ## What's next?
 _(work in progress)_
 
@@ -260,7 +261,7 @@ If the sampling works, then we should be able to calculate the *non-ideality* of
 
 This would allow us to predict phase behaviors in at different pH values, protein concentrations, binary mixtures, and salt concentrations.
 ====+
-
+<br>
 ### That would be really neat.
 ====
 
