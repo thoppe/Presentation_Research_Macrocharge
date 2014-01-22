@@ -20,13 +20,20 @@ check:
 	aspell -c -H $(target)
 
 push:
+	make
 	git status
-	git add index.html README.md Makefile
+	git add index.html Makefile
+	git add $(target)
 	git add css
-	git add js
+	git add images
 	git add *.md
 	git commit -a
 	git push
+
+build_reveal_js:
+	git submodule add https://github.com/hakimel/reveal.js.git reveal.js
+	git submodule init 
+	git submodule update
 
 pull:
 	git pull
