@@ -8,6 +8,7 @@
 
 NIH, NIDDK, LBG
 *[Travis Hoppe](http://thoppe.github.io/)*, Allen Minton, Di Wu
+[(deck source)](https://github.com/thoppe/research_pres_macrocharge)
 
 ====
 
@@ -268,24 +269,27 @@ This would allow us to predict phase behaviors in at different pH values, protei
 # Thanks, you.
 
 ====*
-## How were these slides made?
+|### How were these slides made?
 
-Math Rendering: $\text{\LaTeX}$
+####|Math Rendering: $\text{\LaTeX}$
+####|JavaScript    : [reveal.js](http://hakim.se/projects/reveal-js)
+####|Markdown      : [Daring Fireball](http://daringfireball.net/)
 
-JavaScript: [reveal.js](http://hakim.se/projects/reveal-js)
+----
 
-Custom Markdown: Travis Hoppe
+####|Markdown to HTML: [md2reveal.py](https://github.com/thoppe/md2reveal)
+
 ====*
 
-## What does Markdown look like?
+## How does it work?
 
 A *text-based* human-readable markup.
-Equation rendering is simple $e^{i \pi} = -1$.
+SVG equations $e^{i \pi} = -1$, and [links](http://thoppe.github.io/)!
 The code for _this particular slide_ looks like this:
 
-    ## What does Markdown look like?
+    ## How does it work?
     
     A *text-based* human-readable markup. 
     Equation rendering is simple $e^{i \pi} = -1$.
+    and [links](http://thoppe.github.io/)!
     The code for this _particular slide_ looks like this:
-
