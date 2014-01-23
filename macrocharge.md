@@ -1,4 +1,4 @@
-{"theme":"one_moz.css"}
+{"theme":"md2reveal/css/one_moz.css"}
 
 # Virial
 ## Coefficients
