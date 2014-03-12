@@ -21,7 +21,18 @@ against
 ## Charge anisotropy
 ====*
 
-# Relevance?
+### intra-protein interactions
+!(images/1AO6_cartoon.png)<<height:225px>> <<transparent>> 
+!(images/1OVA_cartoon.png)<<height:225px>> <<transparent>> 
+!(images/1W6Z_cartoon.png)<<height:225px>> <<transparent>> 
+!(images/3V03_cartoon.png)<<height:225px>> <<transparent>>
+Human serum albumin, Ovalbumin, Lysozyme, Bovine Serum Albumin respectively.
+
+How do we model the interaction between proteins on a larger scale? Can we *predict* aggregates?
+
+====*
+
+# Mixtures
 
 Phase separations lead to sudden fundamental changes in liquid structure and local density.
 
@@ -45,56 +56,58 @@ from coarse-grained models.
 
 ====
 
-## Virial Coefficients
+### Virial Coefficients
 An equation of state expanded in powers of density $\rho$
-
 # $\frac{P}{k_B T} = \rho + B_2(T) \rho^2 + B_3(T) \rho^3 + \ldots$
-
 $B_2$ is the pairwise interaction of _two_ molecules
 $B_3$ is the pairwise interaction of _three_ molecules
 ...
-From the equation of state you can calculate most thermodynamic properties!
+====+
+From the equation of state you can calculate many thermodynamic properties.
+
+Necessary first step for a verifiable model.
+
+====*
+## Virial Coefficients
+
+For rotationally invariant molecules
+#$B_2 = -\frac{1}{2} \int_0^\infty (e^{-U(r)/k_B T} - 1) 4\pi r^2 dr$
+(where $U$ is the pairwise interaction energy)
+
+but in general...
+#$B_2 = -\frac{1}{2|\Omega|^2} \int_0^\infty \int_{\Omega_1} \int_{\Omega_2} (e^{-U(r,\omega_1,\omega_2)/k_B T} - 1) r^2 d \omega_1 d \omega_2 dr$
 
 ====*
 
 ## Virial Coefficients
 Why work with this expansion?
 ====+
-<br>
-## We can measure them!
-usually with light scattering
-
-====*
-## Virial Coefficients
-
-For rotationally invariant molecules
-#$B_2 = -\frac{1}{2} \int_0^\infty (e^{-\mathcal{H}(r)/k_B T} - 1) 4\pi r^2 dr$
-
-but in general...
-#$B_2 = -\frac{1}{2|\Omega|^2} \int_0^\infty \int_{\Omega_1} \int_{\Omega_2} (e^{-\mathcal{H}(r,\omega_1,\omega_2)/k_B T} - 1) r^2 d \omega_1 d \omega_2 dr$
+Experimental measurements (light scattering) possible.
+!(images/exp_B22_1OVA.png) <<height:450px>>
 
 ====
 How do you model a
 ## protein?
 
 
-Need an expression for the Hamiltonian $\mathcal{H}$
+Need an expression for the interaction energy $U$
 This is not the free energy, but the *enthalpy*
 
 Important terms:
-1. Volume exclusion
-2. Electrostatics
-3. Non-specific interactions (London/dispersion forces)
++ Volume exclusion
++ Electrostatics
++ Non-specific interactions (London/dispersion forces)
+
 ====*
 How do you model a
 ## protein?
 
-What are we ignoring?
+Second-order effects?
 
-1. Non spherical geometries
-2. Polarization
-3. Internal conformational energies
-4. Solvent effects
++ Non spherical geometries
++ Polarization
++ Internal conformational energies
++ Solvent effects
 
 
 Must decide if this approximation is valid for the system.
@@ -158,7 +171,7 @@ Splits space into regions of discrete $\epsilon_r$.
 # The Process
 !(images/human_serum_albumin_1e7h.png)<<transparent>>
 
-Crystallized PDB Structure
+Start with the crystallized PDB Structure (HSA)
 ====*
 
 ## Adaptive Poisson-Boltzmann Solver
@@ -178,13 +191,13 @@ Electrostatic field
 # The Process
 !(images/HSA_1E7H_spheres.png) <<transparent>>
 
-Excluded volume
+Determine a region of excluded volume.
 ====*
 
 # The Process
 !(images/superposition_SPH.png) <<transparent>>
 
-Spherical Harmonic decomposition
+Spherical Harmonic decomposition for large distances.
 
 ====*
 # The Process
@@ -192,29 +205,22 @@ Spherical Harmonic decomposition
 !(images/HSA_real.png) <<transparent>>
 !(images/HSA_fit.png)  <<transparent>>
 
-Best fit charges
+Best fit macrocharges to replicate the field.
 ====*
 
-# The Process
-!(images/MC1.png)<<transparent>>
-!(images/MC2.png)<<transparent>>
-
-Monte-Carlo Simulation
-
-====*
 ## This works
 !(images/ansio_paper.png)<<height:500px>>
 [J. Chem. Phys. 2013](http://scitation.aip.org/content/aip/journal/jcp/138/17/10.1063/1.4803099)
 ====
 ## Protein Caricatures
 
-Good approximation of the near field, poor up close
+Good approximation of the near field, poor up close.
 
 Captures the anisotropic field
-_especially_ near the *isoelectric point*
+_especially_ near the *isoelectric point*.
 
 Macrocharge approximations make for reasonable
-models of large protein solutions
+models of large protein solutions.
 
 ====
 # So Far...
@@ -231,39 +237,54 @@ _(work in progress)_
 ====
 ## Remember this?
 
-# $B_2 = -\frac{1}{2|\Omega|^2} \int_0^\infty \int_{\Omega_1} \int_{\Omega_2} (e^{-\mathcal{H}(r,\omega_1,\omega_2)/k_B T} - 1) r^2 d \omega_1 d \omega_2 dr$
+# $B_2 = -\frac{1}{2|\Omega|^2} \int_0^\infty \int_{\Omega_1} \int_{\Omega_2} (e^{-U(r,\omega_1,\omega_2)/k_B T} - 1) r^2 d \omega_1 d \omega_2 dr$
 
 Our charge distributions are _not isotropic_ anymore, 
 we _must_ to compute this:
 
-## $\int_{\Omega_1} \int_{\Omega_2} (e^{-\mathcal{H}(r,\omega_1,\omega_2)/k_B T} - 1) r^2 d \omega_1 d \omega_2 dr$
+## $\int_{\Omega_1} \int_{\Omega_2} (e^{-U(r,\omega_1,\omega_2)/k_B T} - 1) r^2 d \omega_1 d \omega_2 dr$
 
 ====*
 ## Sampling woes
 
-##$\iint_{\Omega^2} (e^{-\mathcal{H}/k_B T} - 1)d \omega_{12}$
+##$\iint_{\Omega^2} (e^{-U/k_B T} - 1)d \omega_{12}$
 
 There are many pairwise orientations.
 Blind sampling may miss specific interactions.
-Need to know at different $T$ if we want to scale the model.
+Need to know at different $k_B T$ if we want to scale the model.
 ====*
 ## Density of states
 
-## $\iint_{\Omega^2} (e^{-\mathcal{H}/k_B T} - 1)d \omega_{12}$
+## $\iint_{\Omega^2} (e^{-U/k_B T} - 1)d \omega_{12}$
 
-counts the number of ways we 
-can get a particular energy, $s(E)$
+counts the number of ways 
+we can get a particular energy, $s(E)$
 
 # $= \int_{E_{\text{low}}}^{E_{\text{high}}}  s(E') (e^{-E'/k_B T} - 1) d E'$
+efficiently calculate $s(E)$ with Wang-Landau.
 ====*
 
-If the sampling works, then we should be able to calculate the *non-ideality* of a protein molecule after subtracting both the excluded volume _and_ the electrostatics portions.
 
-This would allow us to predict phase behaviors in at different pH values, protein concentrations, binary mixtures, and salt concentrations.
+Calculate the *non-ideality* of a protein molecule after including both the excluded volume _and_ electrostatics.
+
+Predict the second-virial coefficient as a function of pH values, protein concentrations, binary mixtures, and salt concentrations.
+
+If experimental results agree, use the model in higher-order simulations to predict phase behavior via Gibb's ensembles.
 ====+
 <br>
 ### That would be really neat.
-====
+====*
+### Results for Ovalbumin
+!(images/fit_B22_1OVA.png) <<height:500px>>
+====*
+## Future work
+Large scale Monte-Carlo simulation using macrocharges. 
+!(images/MC1.png)<<transparent>>
+!(images/MC2.png)<<transparent>>
+_results for square-well potentials shown_
+
+
+====*
 
 # Thanks, you.
 
