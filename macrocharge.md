@@ -1,5 +1,3 @@
-{"theme":"md2reveal/css/one_moz.css"}
-
 # Virial
 ## Coefficients
 #### of Charged Protein Solutions
@@ -23,10 +21,10 @@ against
 ====*
 
 ### intra-protein interactions
-!(images/1AO6_cartoon.png)<<height:225px>> <<transparent>> 
-!(images/1OVA_cartoon.png)<<height:225px>> <<transparent>> 
-!(images/1W6Z_cartoon.png)<<height:225px>> <<transparent>> 
-!(images/3V03_cartoon.png)<<height:225px>> <<transparent>>
+!(images/1AO6_cartoon.png) <<height:225px;transparent>> 
+!(images/1OVA_cartoon.png) <<height:225px;transparent>> 
+!(images/1W6Z_cartoon.png) <<height:225px;transparent>> 
+!(images/3V03_cartoon.png) <<height:225px;transparent>>
 Human serum albumin, Ovalbumin, Lysozyme, Bovine Serum Albumin respectively.
 
 How do we model the interaction between proteins on a larger scale? Can we *predict* aggregates?
@@ -170,13 +168,13 @@ Splits space into regions of discrete $\epsilon_r$.
 ====
 
 # The Process
-!(images/human_serum_albumin_1e7h.png)<<transparent>>
+!(images/human_serum_albumin_1e7h.png) <<transparent>>
 
 Start with the crystallized PDB Structure (HSA)
 ====*
 
 ## Adaptive Poisson-Boltzmann Solver
-!(images/human_serum_albumin_1e7h_ALPHA.png)<<transparent>>
+!(images/human_serum_albumin_1e7h_ALPHA.png) <<transparent>>
 
 Typically (in the absence of ions) 
 $\epsilon_{\text{water}} = 80$, $\epsilon_{\text{protein}} = 4$
@@ -210,7 +208,7 @@ Best fit macrocharges to replicate the field.
 ====*
 
 ## This works
-!(images/ansio_paper.png)<<height:500px>>
+!(images/ansio_paper.png) <<height:500px>>
 [J. Chem. Phys. 2013](http://scitation.aip.org/content/aip/journal/jcp/138/17/10.1063/1.4803099)
 ====
 ## Protein Caricatures
@@ -265,7 +263,6 @@ we can get a particular energy, $s(E)$
 efficiently calculate $s(E)$ with Wang-Landau.
 ====*
 
-
 Calculate the *non-ideality* of a protein molecule after including both the excluded volume _and_ electrostatics.
 
 Predict the second-virial coefficient as a function of pH values, protein concentrations, binary mixtures, and salt concentrations.
@@ -280,8 +277,8 @@ If experimental results agree, use the model in higher-order simulations to pred
 ====*
 ## Future work
 Large scale Monte-Carlo simulation using macrocharges. 
-!(images/MC1.png)<<transparent>>
-!(images/MC2.png)<<transparent>>
+!(images/MC1.png) <<transparent>>
+!(images/MC2.png) <<transparent>>
 _results for square-well potentials shown_
 
 
